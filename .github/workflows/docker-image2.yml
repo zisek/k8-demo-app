@@ -26,4 +26,4 @@ jobs:
       with:
         #context: martinzich
         push: true
-        tags: martinzich/k8-demo-app:latest
+        tags: martinzich/k8s-demo-app:latest
