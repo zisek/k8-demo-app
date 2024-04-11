@@ -1,5 +1,5 @@
-name: Docker Image CI
-
+name: Build Docker image and push it to Docker hub repository
+#
 on:
   push:
     branches: [ "main" ]
@@ -8,46 +8,25 @@ on:
 
 jobs:
 
-  build:
-
+  build_and_push_to_registry:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-    
+      run: docker build . --file Dockerfile --tag k8-demo-app:$(date +%s)
+  
+    - name: login to docker registry
+      uses: docker/login-action@v3
+      with:
+        username: ${{secrets.DOCKER_HUB_USERNAME}}
+        password: ${{secrets.DOCKER_HUB_TOKEN}}
 
-    name: Docker Image CI
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: build image
-        run: docker build . --file Dockerfile --tag k8s-demo-app:$(date +%s)
-      #
-      #- name: check repository
-      #  uses: actions/checkout@v4
-
-      #- name: login to docker registry
-      #  uses: docker/login-action@v3
-      #  with:
-      #   username: ${{secrets.DOCKERHUB_USERNAME}}
-      #   password: ${{secrets.DOCKERHUB_TOKEN}}
-
-      #- name: build and push docker image to registry
-      #  uses: docker/build-push-action@v5
-      #  with:
-      #    context: DockerFileFolder/
-      #    push: true
-      #    tags: k8-demo-app:$(date +%s)
+    - name: push docker image to registry
+      uses: docker/build-push-action@v5
+      with:
+        #context: martinzich
+        push: true
+        tags: martinzich/k8-demo-app:latest
 
 
 
