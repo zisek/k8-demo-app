@@ -24,6 +24,6 @@ jobs:
     - name: push docker image to registry
       uses: docker/build-push-action@v5
       with:
-        context: DockerFileFolder/
+        #context: DockerFileFolder/
         push: true
         tags: k8-demo-app:v3
