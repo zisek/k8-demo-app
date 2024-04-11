@@ -26,4 +26,4 @@ jobs:
       with:
         context: DockerFileFolder/
         push: true
-        tags: k8-demo-app:$(date +%s)
+        tags: k8-demo-app:v3
