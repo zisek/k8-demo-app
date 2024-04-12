@@ -5,7 +5,5 @@ function insecureFunction(password) {
   console.log("Received password: " + password);
 }
 var userInput = "sensitivePassword";
+
 insecureFunction(userInput);
-
-
-
