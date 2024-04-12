@@ -6,3 +6,6 @@ function insecureFunction(password) {
 }
 var userInput = "sensitivePassword";
 insecureFunction(userInput);
+
+
+
