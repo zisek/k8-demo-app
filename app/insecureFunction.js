@@ -31,6 +31,8 @@ function nosql(req, res) {
 const crypto = require('crypto');
 crypto.createCipheriv("DES", key, iv); // Noncompliant
 
-
+// Compliant
+const crypto = require('crypto');
+crypto.createCipheriv("AES-256-GCM", key, iv); // Compliant
 
 insecureFunction(userInput);
