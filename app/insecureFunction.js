@@ -6,5 +6,6 @@ function insecureFunction(password) {
 }
 var userInput = "sensitivePassword";
 var KEY_TOKEN = "thisisasecrettokenthatnobodyshouldsee";
+var KEY_TOKEN2 = "password";
 
 insecureFunction(userInput);
