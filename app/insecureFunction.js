@@ -6,6 +6,6 @@ function insecureFunction(password) {
 }
 var userInput = "sensitivePassword";
 var KEY_TOKEN = "thisisasecrettokenthatnobodyshouldsee";
-var KEY_TOKEN2 = "password";
+var openai_api_key = "password";
 
 insecureFunction(userInput);
